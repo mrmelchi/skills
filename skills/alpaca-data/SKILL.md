@@ -1,6 +1,6 @@
 ---
 name: alpaca-data
-description: Market Data API de Alpaca: acciones, crypto, opciones. Historical y real-time data para 5000+ stocks.
+description: "Market Data API de Alpaca: acciones, crypto, opciones. Historical y real-time data para 5000+ stocks."
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: alpha-vantage
-description: API de datos financieros de EE.UU.: acciones, forex, crypto, indicadores técnicos, fundamental data y más.
+description: "API de datos financieros de EE.UU.: acciones, forex, crypto, indicadores técnicos, fundamental data."
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: alpaca-trading
-description: Trading API de Alpaca: órdenes, posiciones, cuenta. Paper trading y live trading de acciones, crypto y opciones.
+description: "Trading API de Alpaca: órdenes, posiciones, cuenta. Paper trading y live trading de acciones, crypto y opciones."
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: data912
-description: API del mercado argentino: acciones, CEDEARs, bonos, MEP, CCL con datos live e históricos (OHLC).
+description: "API del mercado argentino: acciones, CEDEARs, bonos, MEP, CCL con datos live e históricos (OHLC)."
 license: MIT
 ---
 
