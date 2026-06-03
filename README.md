@@ -10,6 +10,7 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | Skill | Descripción | Instalar |
 |-------|-------------|----------|
 | [BCRA Macro](./skills/bcra-macro/) | API de Estadísticas Monetarias v4.0 del BCRA: 638 series macroeconómicas. | `npx skills add gauss314/skills --skill bcra-macro` |
+| [FRED Macro](./skills/fred-macro/) | API gratuita de la Reserva Federal: 840K+ series macro (GDP, CPI, tasas, empleo, M2, VIX). | `npx skills add gauss314/skills --skill fred-macro` |
 | [Data912](./skills/data912/) | API del mercado argentino: acciones, CEDEARs, bonos, MEP, CCL (live + OHLC). | `npx skills add gauss314/skills --skill data912` |
 | [Alpha Vantage](./skills/alpha-vantage/) | API de EE.UU.: acciones, forex, crypto, 50+ indicadores técnicos, fundamental data. | `npx skills add gauss314/skills --skill alpha-vantage` |
 | [Alpaca Data](./skills/alpaca-data/) | Market Data API: acciones US, crypto, opciones con historical y real-time data. Feed IEX gratis. | `npx skills add gauss314/skills --skill alpaca-data` |
