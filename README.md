@@ -16,6 +16,7 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | [Alpaca Trading](./skills/alpaca-trading/) | Trading API: órdenes, posiciones, cuenta para acciones, crypto y opciones. Paper trading gratis. | `npx skills add gauss314/skills --skill alpaca-trading` |
 | [Yahoo Finance](./skills/yahoo-finance/) | API no oficial de Yahoo Finance: precios, históricos, fundamentales, opciones, noticias en JSON puro. | `npx skills add gauss314/skills --skill yahoo-finance` |
 | [SEC Data](./skills/sec-data/) | SEC EDGAR: financial statements estructurados (income, balance, cash flow) desde XBRL JSON API. | `npx skills add gauss314/skills --skill sec-data` |
+| [Finviz](./skills/finviz/) | Scraper de Finviz: datos fundamentales, técnicos, insider trading, news y screener para acciones US. Sin API oficial. | `npx skills add gauss314/skills --skill finviz` |
 
 ## Estructura
 
