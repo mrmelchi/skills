@@ -7,20 +7,39 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 
 ## Skills disponibles
 
-| Skill | Descripción | Instalar |
-|-------|-------------|----------|
-| [BCRA Macro](./skills/bcra-macro/) | API de Estadísticas Monetarias v4.0 del BCRA: 638 series macroeconómicas. | `npx skills add gauss314/skills --skill bcra-macro` |
-| [FRED Macro](./skills/fred-macro/) | API gratuita de la Reserva Federal: 840K+ series macro (GDP, CPI, tasas, empleo, M2, VIX). | `npx skills add gauss314/skills --skill fred-macro` |
-| [Data912](./skills/data912/) | API del mercado argentino: acciones, CEDEARs, bonos, MEP, CCL (live + OHLC). | `npx skills add gauss314/skills --skill data912` |
-| [Alpha Vantage](./skills/alpha-vantage/) | API de EE.UU.: acciones, forex, crypto, 50+ indicadores técnicos, fundamental data. | `npx skills add gauss314/skills --skill alpha-vantage` |
-| [Alpaca Data](./skills/alpaca-data/) | Market Data API: acciones US, crypto, opciones con historical y real-time data. Feed IEX gratis. | `npx skills add gauss314/skills --skill alpaca-data` |
-| [Alpaca Trading](./skills/alpaca-trading/) | Trading API: órdenes, posiciones, cuenta para acciones, crypto y opciones. Paper trading gratis. | `npx skills add gauss314/skills --skill alpaca-trading` |
-| [Yahoo Finance](./skills/yahoo-finance/) | API no oficial de Yahoo Finance: precios, históricos, fundamentales, opciones, noticias en JSON puro. | `npx skills add gauss314/skills --skill yahoo-finance` |
-| [SEC Data](./skills/sec-data/) | SEC EDGAR: financial statements estructurados (income, balance, cash flow) desde XBRL JSON API. | `npx skills add gauss314/skills --skill sec-data` |
-| [Finviz](./skills/finviz/) | Scraper de Finviz: datos fundamentales, técnicos, insider trading, news y screener para acciones US. Sin API oficial. | `npx skills add gauss314/skills --skill finviz` |
-| [Macrotrends](./skills/macrotrends/) | Scraper de Macrotrends: financial statements, ratios, employee count con 15+ años de data. Sin API key. | `npx skills add gauss314/skills --skill macrotrends` |
-| [MarketWatch](./skills/marketwatch/) | Scraper de MarketWatch: quotes, financials (income/balance/cash flow), SEC filings, analyst estimates, options, historical OHLCV. Sin API key. | `npx skills add gauss314/skills --skill marketwatch` |
-| [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper de CompaniesMarketCap: rankings (marketcap/earnings/revenue/employees/ratios), stock history y ETF holdings. CSV download + HTML. Sin API key. | `npx skills add gauss314/skills --skill companiesmarketcap` |
+| Skill | Tipo | Costo | API Key | Descripción |
+|-------|------|:-----:|:-------:|-------------|
+| [BCRA Macro](./skills/bcra-macro/) | API | ✅ Gratis | - | Estadísticas Monetarias ARG v4.0 del BCRA: 638 series macroeconómicas |
+| [FRED Macro](./skills/fred-macro/) | API | ✅ Gratis | Si (gratis) | Reserva Federal: 840K+ series macro (GDP, CPI, tasas, empleo, M2, VIX) |
+| [Finnhub](./skills/finnhub/) | API | ⚠️ Freemium | Si (gratis) | Cotizaciones, perfil empresa, earnings, recomendaciones, métricas, noticias, búsqueda (60 calls/min free) |
+| [Data912](./skills/data912/) | API | ✅ Gratis | - | Mercado ARG: Acciones, CEDEARs, bonos, MEP, CCL (live + OHLC) |
+| [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠️ Freemium | Si (gratis) | Acciones, forex, crypto, 50+ indicadores técnicos, fundamental data |
+| [Alpaca Data](./skills/alpaca-data/) | API | ✅ Gratis | Si (gratis) | Acciones US, crypto, opciones con historical y real-time data. Feed IEX |
+| [Alpaca Trading](./skills/alpaca-trading/) | API | ✅ Gratis | Si (gratis) | Paper trading: órdenes, posiciones, cuenta para acciones, crypto y opciones |
+| [Yahoo Finance](./skills/yahoo-finance/) | Scraper | ✅ Gratis | - | Precios, históricos, fundamentales, opciones, noticias en JSON |
+| [SEC Data](./skills/sec-data/) | API | ✅ Gratis | - | SEC EDGAR: financial statements (income, balance, cash flow) desde XBRL JSON |
+| [Finviz](./skills/finviz/) | Scraper | ✅ Gratis | - | Datos fundamentales, técnicos, insider trading, news y screener para acciones US |
+| [Macrotrends](./skills/macrotrends/) | Scraper | ✅ Gratis | - | Financial statements, ratios, employee count con 15+ años de data |
+| [MarketWatch](./skills/marketwatch/) | Scraper | ✅ Gratis | - | Quotes, financials, SEC filings, analyst estimates, options, historical OHLCV |
+| [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✅ Gratis | - | Rankings (marketcap/earnings/revenue/employees/ratios), stock history, ETF holdings |
+
+### Instalación
+
+| Skill | Comando |
+|-------|---------|
+| BCRA Macro | `npx skills add gauss314/skills --skill bcra-macro` |
+| FRED Macro | `npx skills add gauss314/skills --skill fred-macro` |
+| Finnhub | `npx skills add gauss314/skills --skill finnhub` |
+| Data912 | `npx skills add gauss314/skills --skill data912` |
+| Alpha Vantage | `npx skills add gauss314/skills --skill alpha-vantage` |
+| Alpaca Data | `npx skills add gauss314/skills --skill alpaca-data` |
+| Alpaca Trading | `npx skills add gauss314/skills --skill alpaca-trading` |
+| Yahoo Finance | `npx skills add gauss314/skills --skill yahoo-finance` |
+| SEC Data | `npx skills add gauss314/skills --skill sec-data` |
+| Finviz | `npx skills add gauss314/skills --skill finviz` |
+| Macrotrends | `npx skills add gauss314/skills --skill macrotrends` |
+| MarketWatch | `npx skills add gauss314/skills --skill marketwatch` |
+| CompaniesMarketCap | `npx skills add gauss314/skills --skill companiesmarketcap` |
 
 ## Estructura
 
