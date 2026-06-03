@@ -19,6 +19,7 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | [Finviz](./skills/finviz/) | Scraper de Finviz: datos fundamentales, técnicos, insider trading, news y screener para acciones US. Sin API oficial. | `npx skills add gauss314/skills --skill finviz` |
 | [Macrotrends](./skills/macrotrends/) | Scraper de Macrotrends: financial statements, ratios, employee count con 15+ años de data. Sin API key. | `npx skills add gauss314/skills --skill macrotrends` |
 | [MarketWatch](./skills/marketwatch/) | Scraper de MarketWatch: quotes, financials (income/balance/cash flow), SEC filings, analyst estimates, options, historical OHLCV. Sin API key. | `npx skills add gauss314/skills --skill marketwatch` |
+| [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper de CompaniesMarketCap: rankings (marketcap/earnings/revenue/employees/ratios), stock history y ETF holdings. CSV download + HTML. Sin API key. | `npx skills add gauss314/skills --skill companiesmarketcap` |
 
 ## Estructura
 
