@@ -9,17 +9,18 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 
 | Skill | Tipo | Costo | API Key | Descripción |
 |-------|------|:-----:|:-------:|-------------|
-| [BCRA Macro](./skills/bcra-macro/) | API | ✅ Gratis | - | Estadísticas Monetarias ARG v4.0 del BCRA: 638 series macroeconómicas |
-| [FRED Macro](./skills/fred-macro/) | API | ✅ Gratis | Si (gratis) | Reserva Federal: 840K+ series macro (GDP, CPI, tasas, empleo, M2, VIX) |
-| [Finnhub](./skills/finnhub/) | API | ⚠️ Freemium | Si (gratis) | Cotizaciones, perfil empresa, earnings, recomendaciones, métricas, noticias, búsqueda (60 calls/min free) |
-| [Data912](./skills/data912/) | API | ✅ Gratis | - | Mercado ARG: Acciones, CEDEARs, bonos, MEP, CCL (live + OHLC) |
-| [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠️ Freemium | Si (gratis) | Acciones, forex, crypto, 50+ indicadores técnicos, fundamental data |
-| [Alpaca Data](./skills/alpaca-data/) | API | ✅ Gratis | Si (gratis) | Acciones US, crypto, opciones con historical y real-time data. Feed IEX |
-| [Alpaca Trading](./skills/alpaca-trading/) | API | ✅ Gratis | Si (gratis) | Paper trading: órdenes, posiciones, cuenta para acciones, crypto y opciones |
+| [BCRA Macro](./skills/bcra-macro/) | API | ✅ Gratis | - | 🇦🇷 Estadísticas Monetarias ARG v4.0 del BCRA: 638 series macroeconómicas |
+| [FRED Macro](./skills/fred-macro/) | API | ✅ Gratis | Requerida | Reserva Federal: 840K+ series macro (GDP, CPI, tasas, empleo, M2, VIX) |
+| [Finnhub](./skills/finnhub/) | API | ⚠️ Freemium | Requerida | Gratis: Cotizaciones, perfil empresa, earnings, recomendaciones, métricas, noticias, búsqueda (60 calls/min free) |
+| [Data912](./skills/data912/) | API | ✅ Gratis | - | 🇦🇷 Acciones, CEDEARs, bonos, letras, MEP, CCL (live + OHLC). 🇺🇸 live Acciones y Volatilidades |
+| [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠️ Freemium | Requerida | Acciones, forex, crypto, 50+ indicadores técnicos, fundamental data (25 calls/dia free) |
+| [Alpaca Data](./skills/alpaca-data/) | API | ✅ Gratis | Requerida | Acciones US, crypto, opciones con historical y real-time data. Feed IEX |
+| [Alpaca Trading](./skills/alpaca-trading/) | API | ✅ Gratis | Requerida | Paper trading: órdenes, posiciones, cuenta para acciones, crypto y opciones |
 | [Yahoo Finance](./skills/yahoo-finance/) | Scraper | ✅ Gratis | - | Precios, históricos, fundamentales, opciones, noticias en JSON |
 | [SEC Data](./skills/sec-data/) | API | ✅ Gratis | - | SEC EDGAR: financial statements (income, balance, cash flow) desde XBRL JSON |
 | [Finviz](./skills/finviz/) | Scraper | ✅ Gratis | - | Datos fundamentales, técnicos, insider trading, news y screener para acciones US |
 | [Macrotrends](./skills/macrotrends/) | Scraper | ✅ Gratis | - | Financial statements, ratios, employee count con 15+ años de data |
+| [MarketScreener](./skills/marketscreener/) | Scraper | ✅ Gratis | - | Cotizaciones, perfil, financials (income/balance/cashflow), valuación, consenso analistas, noticias, earnings transcripts listado, insider trading, accionistas, gobierno corporativo. Cubre 20K+ acciones globales incluyendo ADRs |
 | [MarketWatch](./skills/marketwatch/) | Scraper | ✅ Gratis | - | Quotes, financials, SEC filings, analyst estimates, options, historical OHLCV |
 | [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✅ Gratis | - | Rankings (marketcap/earnings/revenue/employees/ratios), stock history, ETF holdings |
 
@@ -38,6 +39,7 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | SEC Data | `npx skills add gauss314/skills --skill sec-data` |
 | Finviz | `npx skills add gauss314/skills --skill finviz` |
 | Macrotrends | `npx skills add gauss314/skills --skill macrotrends` |
+| MarketScreener | `npx skills add gauss314/skills --skill marketscreener` |
 | MarketWatch | `npx skills add gauss314/skills --skill marketwatch` |
 | CompaniesMarketCap | `npx skills add gauss314/skills --skill companiesmarketcap` |
 
@@ -50,11 +52,11 @@ Cada skill es un directorio que sigue la estructura del estándar Agent Skills:
 ├── skills/
 │   └── <skill-name>/
 │       ├── SKILL.md           # requerido: frontmatter + instrucciones
-│       ├── references/        # opcional: documentación complementaria
-│       ├── scripts/           # opcional: scripts ejecutables
-│       └── assets/           # opcional: plantillas, configs
+│       ├── references/        # carpeta opcional: documentación complementaria
+│       ├── scripts/           # carpeta opcional: scripts de ejemplo ejecutables
+│       └── assets/            # carpeta opcional: plantillas, configs
 ├── README.md
-├── LICENSE                   # MIT
+├── LICENSE                    # MIT
 └── .gitignore
 ```
 
