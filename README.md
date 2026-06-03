@@ -9,10 +9,10 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 
 | Skill | Tipo | Costo | API Key | Descripción |
 |-------|------|:-----:|:-------:|-------------|
-| [BCRA Macro](./skills/bcra-macro/) | API | ✅ Gratis | - | 🇦🇷 Estadísticas Monetarias ARG v4.0 del BCRA: 638 series macroeconómicas |
+| [BCRA Macro](./skills/bcra-macro/) | API | ✅ Gratis | - | 🌎AR Estadísticas Monetarias ARG v4.0 del BCRA: 638 series macroeconómicas |
 | [FRED Macro](./skills/fred-macro/) | API | ✅ Gratis | Requerida | Reserva Federal: 840K+ series macro (GDP, CPI, tasas, empleo, M2, VIX) |
 | [Finnhub](./skills/finnhub/) | API | ⚠️ Freemium | Requerida | Gratis: Cotizaciones, perfil empresa, earnings, recomendaciones, métricas, noticias, búsqueda (60 calls/min free) |
-| [Data912](./skills/data912/) | API | ✅ Gratis | - | 🇦🇷 Acciones, CEDEARs, bonos, letras, MEP, CCL (live + OHLC). 🇺🇸 live Acciones y Volatilidades |
+| [Data912](./skills/data912/) | API | ✅ Gratis | - |  🌎AR Acciones, CEDEARs, bonos, letras, MEP, CCL (live + OHLC). �US live Acciones y Volatilidades |
 | [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠️ Freemium | Requerida | Acciones, forex, crypto, 50+ indicadores técnicos, fundamental data (25 calls/dia free) |
 | [Alpaca Data](./skills/alpaca-data/) | API | ✅ Gratis | Requerida | Acciones US, crypto, opciones con historical y real-time data. Feed IEX |
 | [Alpaca Trading](./skills/alpaca-trading/) | API | ✅ Gratis | Requerida | Paper trading: órdenes, posiciones, cuenta para acciones, crypto y opciones |
@@ -23,10 +23,12 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | [MarketScreener](./skills/marketscreener/) | Scraper | ✅ Gratis | - | Cotizaciones, perfil, financials (income/balance/cashflow), valuación, consenso analistas, noticias, earnings transcripts listado, insider trading, accionistas, gobierno corporativo. Cubre 20K+ acciones globales incluyendo ADRs |
 | [MarketWatch](./skills/marketwatch/) | Scraper | ✅ Gratis | - | Quotes, financials, SEC filings, analyst estimates, options, historical OHLCV |
 | [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✅ Gratis | - | Rankings (marketcap/earnings/revenue/employees/ratios), stock history, ETF holdings |
+| [EarningsWhispers](./skills/earningswhispers/) | API | ✅ Gratis | - | Earnings transcripts COMPLETOS (prepared remarks + Q&A) via API pública sin auth. 33,500+ stocks globales. Cobertura: US, Europa, Asia, LatAm |
 
 ### Instalación
 
-Instalar todas las skills globalmente: `npx skills add gauss314/skills -g` — o individualmente con los comandos de la tabla:
+Instalar todas las skills globalmente: `npx skills add gauss314/skills -g` 
+Tambien se pueden instalar solo las necesarias individualmente con los comandos de la tabla:
 
 | Skill | Comando |
 |-------|---------|
@@ -44,6 +46,7 @@ Instalar todas las skills globalmente: `npx skills add gauss314/skills -g` — o
 | MarketScreener | `npx skills add gauss314/skills --skill marketscreener` |
 | MarketWatch | `npx skills add gauss314/skills --skill marketwatch` |
 | CompaniesMarketCap | `npx skills add gauss314/skills --skill companiesmarketcap` |
+| EarningsWhispers | `npx skills add gauss314/skills --skill earningswhispers` |
 
 ## Estructura
 
