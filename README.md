@@ -26,6 +26,8 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 
 ### Instalación
 
+Instalar todas las skills globalmente: `npx skills add gauss314/skills -g` — o individualmente con los comandos de la tabla:
+
 | Skill | Comando |
 |-------|---------|
 | BCRA Macro | `npx skills add gauss314/skills --skill bcra-macro` |
