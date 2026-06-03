@@ -9,11 +9,12 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 
 | Skill | Descripción | Instalar |
 |-------|-------------|----------|
-| [BCRA Macro](./skills/bcra-macro/) | API de Estadísticas Monetarias v4.0 del BCRA: 638 series macroeconómicas. | `npx skills add gauss314/skills/bcra-macro` |
-| [Data912](./skills/data912/) | API del mercado argentino: acciones, CEDEARs, bonos, MEP, CCL (live + OHLC). | `npx skills add gauss314/skills/data912` |
-| [Alpha Vantage](./skills/alpha-vantage/) | API de EE.UU.: acciones, forex, crypto, 50+ indicadores técnicos, fundamental data. | `npx skills add gauss314/skills/alpha-vantage` |
-| [Alpaca Data](./skills/alpaca-data/) | Market Data API: acciones US, crypto, opciones con historical y real-time data. Feed IEX gratis. | `npx skills add gauss314/skills/alpaca-data` |
-| [Alpaca Trading](./skills/alpaca-trading/) | Trading API: órdenes, posiciones, cuenta para acciones, crypto y opciones. Paper trading gratis. | `npx skills add gauss314/skills/alpaca-trading` |
+| [BCRA Macro](./skills/bcra-macro/) | API de Estadísticas Monetarias v4.0 del BCRA: 638 series macroeconómicas. | `npx skills add gauss314/skills --skill bcra-macro` |
+| [Data912](./skills/data912/) | API del mercado argentino: acciones, CEDEARs, bonos, MEP, CCL (live + OHLC). | `npx skills add gauss314/skills --skill data912` |
+| [Alpha Vantage](./skills/alpha-vantage/) | API de EE.UU.: acciones, forex, crypto, 50+ indicadores técnicos, fundamental data. | `npx skills add gauss314/skills --skill alpha-vantage` |
+| [Alpaca Data](./skills/alpaca-data/) | Market Data API: acciones US, crypto, opciones con historical y real-time data. Feed IEX gratis. | `npx skills add gauss314/skills --skill alpaca-data` |
+| [Alpaca Trading](./skills/alpaca-trading/) | Trading API: órdenes, posiciones, cuenta para acciones, crypto y opciones. Paper trading gratis. | `npx skills add gauss314/skills --skill alpaca-trading` |
+| [Yahoo Finance](./skills/yahoo-finance/) | API no oficial de Yahoo Finance: precios, históricos, fundamentales, opciones, noticias en JSON puro. | `npx skills add gauss314/skills --skill yahoo-finance` |
 
 ## Estructura
 
@@ -34,7 +35,7 @@ Cada skill es un directorio que sigue la estructura del estándar Agent Skills:
 
 ## Cómo funciona
 
-El comando `npx skills add gauss314/skills/bcra-macro` instala:
+El comando `npx skills add gauss314/skills --skill bcra-macro` instala:
 
 1. **SKILL.md** → se carga al contexto del agente cuando usás `/bcra-macro`
 2. **references/** → documentación complementaria (catálogos, referencias)
