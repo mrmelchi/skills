@@ -23,6 +23,7 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | [MarketScreener](./skills/marketscreener/) | Scraper | ✅ Gratis | - | Cotizaciones, perfil, financials (income/balance/cashflow), valuación, consenso analistas, noticias, earnings transcripts listado, insider trading, accionistas, gobierno corporativo. Cubre 20K+ acciones globales incluyendo ADRs |
 | [MarketWatch](./skills/marketwatch/) | Scraper | ✅ Gratis | - | Quotes, financials, SEC filings, analyst estimates, options, historical OHLCV |
 | [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✅ Gratis | - | Rankings (marketcap/earnings/revenue/employees/ratios), stock history, ETF holdings |
+| [SimplyWallSt](./skills/simplywallst/) | API/Scraper | ✅ Gratis | - | Snowflake scores, valuation, P/E/P/B/ROE, dividend history (19+ años), insider transactions, price targets. 78K+ listings en 106 exchanges globales |
 | [EarningsWhispers](./skills/earningswhispers/) | API | ✅ Gratis | - | Earnings transcripts COMPLETOS (prepared remarks + Q&A) via API pública sin auth. 33,500+ stocks globales. Cobertura: US, Europa, Asia, LatAm |
 
 ### Instalación
@@ -46,6 +47,7 @@ Tambien se pueden instalar solo las necesarias individualmente con los comandos 
 | MarketScreener | `npx skills add gauss314/skills --skill marketscreener` |
 | MarketWatch | `npx skills add gauss314/skills --skill marketwatch` |
 | CompaniesMarketCap | `npx skills add gauss314/skills --skill companiesmarketcap` |
+| SimplyWallSt | `npx skills add gauss314/skills --skill simplywallst` |
 | EarningsWhispers | `npx skills add gauss314/skills --skill earningswhispers` |
 
 ## Estructura
