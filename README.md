@@ -25,6 +25,7 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✅ Gratis | - | Rankings (marketcap/earnings/revenue/employees/ratios), stock history, ETF holdings |
 | [SimplyWallSt](./skills/simplywallst/) | API/Scraper | ✅ Gratis | - | Snowflake scores, valuation, P/E/P/B/ROE, dividend history (19+ años), insider transactions, price targets. 78K+ listings en 106 exchanges globales |
 | [EarningsWhispers](./skills/earningswhispers/) | API | ✅ Gratis | - | Earnings transcripts COMPLETOS (prepared remarks + Q&A) via API pública sin auth. 33,500+ stocks globales. Cobertura: US, Europa, Asia, LatAm |
+| [Barchart](./skills/barchart/) | Scraper | ✅ Gratis | - | Quotes + fundamentals + insider summary. Estimates. Analysts 30K+ stocks US, ADRs globales |
 
 ### Instalación
 
@@ -49,6 +50,7 @@ Tambien se pueden instalar solo las necesarias individualmente con los comandos 
 | CompaniesMarketCap | `npx skills add gauss314/skills --skill companiesmarketcap` |
 | SimplyWallSt | `npx skills add gauss314/skills --skill simplywallst` |
 | EarningsWhispers | `npx skills add gauss314/skills --skill earningswhispers` |
+| Barchart | `npx skills add gauss314/skills --skill barchart` |
 
 ## Estructura
 
