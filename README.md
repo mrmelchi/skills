@@ -71,20 +71,25 @@ Calculation and financial support tools (backtesting frameworks, screeners, opti
 | soon | Portfolio Optimization |  |
 | soon | Backtesting |  |
 
+<br><br>
 
----
+# Installation
 
-### Installation
-
-Install all skills globally:
+Install selected skills globally:
 
 ```bash
 npx skills add gauss314/skills -g
 ```
 
+Install all skills globally:
+
+```bash
+npx skills add gauss314/skills --all
+```
+
 Individual skills can also be installed with the commands in the tables below:
 
-#### Data — Global
+## Data — Global
 
 | Skill | Command |
 |-------|---------|
@@ -109,7 +114,7 @@ Individual skills can also be installed with the commands in the tables below:
 | TradingView | `npx skills add gauss314/skills --skill tradingview` |
 | Google Finance | `npx skills add gauss314/skills --skill google-finance` |
 
-#### Data — Regional (Argentina)
+## Data — Regional (Argentina)
 
 | Skill | Command |
 |-------|---------|
@@ -120,19 +125,20 @@ Individual skills can also be installed with the commands in the tables below:
 | CAFCI | `npx skills add gauss314/skills --skill cafci` |
 | INDEC | `npx skills add gauss314/skills --skill indec` |
 
-#### Brokers
+## Brokers
 
 | Skill | Command |
 |-------|---------|
 | Alpaca Trading | `npx skills add gauss314/skills --skill alpaca-trading` |
 
-#### Tools
+## Tools
 
 | Skill | Command |
 |-------|---------|
 | Option pricing | `npx skills add gauss314/skills --skill option-pricing` |
 
-## Structure
+<br><br>
+# Structure
 
 Each skill is a directory following the Agent Skills standard structure:
 
