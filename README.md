@@ -29,8 +29,10 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | 18 | [Nasdaq Data](./skills/nasdaq-data/) | API | ✅ Gratis | - | Cotizaciones, short interest, financials, institutional holdings, opciones, noticias, ETFs donde el stock es Top 10 Holding via API REST interna |
 | 19 | [CBOE Data](./skills/cboe-data/) | API | ✅ Gratis | - | Índices y stocks CBOE: quotes delayed, historical (HV/IV), intraday 1-min, futuros VX, market summary (equities + opciones), most-active, symbol lookup |
 | 20 | [Investing.com](./skills/investing/) | Scraper | ✅ Gratis | - | 81K+ equities, 10K+ indices, 2.4K currencies, 344 commodities, 30K+ ETFs, 4K+ crypto. Quotes, historico OHLCV, fundamentals (income/balance/cashflow/ratios), dividendos, earnings, perfil. Cobertura global con auto-detección de tipo. Requiere `curl_cffi` |
-| 21 | [MAE](./skills/mae/) | API | ✅ Gratis | - | 🌎AR Mercado Abierto Electrónico: renta fija, cauciones, REPO, FOREX mayorista, dólar diferido (DDF), índice ARS-MAE, licitaciones primarias, comunicados institucionales, flujo de fondos para curvas TIR/MD. 17 endpoints |
-| 22 | [BYMA](./skills/byma/) | API | ✅ Gratis | - | 🌎AR Bolsas y Mercados Argentinos: paneles de acciones líderes, CEDEARs, bonos soberanos + LECAPs/BONCAPs, ONs corporativas, cauciones, opciones y SENEBI. Históricos OHLCV de instrumentos e índices (MERVAL, BURCAP). 9 endpoints |
+| 21 | [Morningstar](./skills/morningstar/) | API | ✅ Gratis | - | Screener masivo via API JSON: 53 universes (102K+ listings, 39 paises) con 33 campos (precio, market cap, ratios, retornos 1d/1w/1m/3m/6m/12m/36m/60m/120m, deuda, dividend yield, sector, industria). CEDEARs Argentina (XBUE), NYSE, Nasdaq, B3, BMV, Tokyo, London, etc. Token universal via ingenieria inversa. Multi-universe, multi-pais, multi-currency. Salida JSON/CSV |
+| 22 | [MAE](./skills/mae/) | API | ✅ Gratis | - | 🌎AR Mercado Abierto Electrónico: renta fija, cauciones, REPO, FOREX mayorista, dólar diferido (DDF), índice ARS-MAE, licitaciones primarias, comunicados institucionales, flujo de fondos para curvas TIR/MD. 17 endpoints |
+| 23 | [BYMA](./skills/byma/) | API | ✅ Gratis | - | 🌎AR Bolsas y Mercados Argentinos: paneles de acciones líderes, CEDEARs, bonos soberanos + LECAPs/BONCAPs, ONs corporativas, cauciones, opciones y SENEBI. Históricos OHLCV de instrumentos e índices (MERVAL, BURCAP). 9 endpoints |
+| 24 | [CAFCI](./skills/cafci/) | API | ✅ Gratis | - | 🌎AR Fondos comunes de inversión argentinos (1152 fondos, 4615 clases): catálogo completo con honorarios/fees, snapshot diario (VCP, patrimonio, market share, variaciones día/mes/YTD/12m), ficha individual con rendimientos TNA, composición de cartera (top activos). 4 endpoints + cache local diario |
 
 ### Instalación
 
@@ -59,8 +61,10 @@ Tambien se pueden instalar solo las necesarias individualmente con los comandos 
 | 18 | Nasdaq Data | `npx skills add gauss314/skills --skill nasdaq-data` |
 | 19 | CBOE Data | `npx skills add gauss314/skills --skill cboe-data` |
 | 20 | Investing.com | `npx skills add gauss314/skills --skill investing` |
+| 21 | Morningstar | `npx skills add gauss314/skills --skill morningstar` |
 | 21 | MAE | `npx skills add gauss314/skills --skill mae` |
 | 22 | BYMA | `npx skills add gauss314/skills --skill byma` |
+| 23 | CAFCI | `npx skills add gauss314/skills --skill cafci` |
 
 ## Estructura
 
