@@ -13,7 +13,7 @@ Skills that extract market data (quotes, historical, fundamentals, screener, etc
 |---|-------|------|:-----:|:-------:|--------------|
 | 1 | [FRED Macro](./skills/fred-macro/) | API | ✅ Free | Required | macro-data |
 | 2 | [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠️ Freemium | Required | stocks, forex, commodities, fundamentals |
-| 3 | [Yahoo Finance](./skills/yahoo-finance/) | Scraper | ✅ Free | - | stocks, forex, options, futures, fundamentals |
+| 3 | [Yahoo Finance](./skills/yahoo-finance/) | API/Scraper | ✅ Free | - | stocks, forex, options, futures, fundamentals |
 | 4 | [SEC Data](./skills/sec-data/) | API | ✅ Free | - | fundamentals |
 | 5 | [Alpaca Data](./skills/alpaca-data/) | API | ✅ Free | Required | stocks, options |
 | 6 | [Finnhub](./skills/finnhub/) | API | ⚠️ Freemium | Required | stocks, forex, fundamentals |
@@ -30,6 +30,7 @@ Skills that extract market data (quotes, historical, fundamentals, screener, etc
 | 17 | [Investing.com](./skills/investing/) | Scraper | ✅ Free | - | stocks, forex, commodities, options, futures, etfs, screener, fundamentals |
 | 18 | [Morningstar](./skills/morningstar/) | API | ✅ Free | - | screener |
 | 19 | [TradingView](./skills/tradingview/) | API | ✅ Free | - | stocks, etfs, bonds, options, futures, forex, crypto, screener, fundamentals |
+| 20 | [Google Finance](./skills/google-finance/) | API | ✅ Free | - | stocks, etfs, options, fundamentals |
 
 ## Data — Regional (Argentina)
 
@@ -95,6 +96,7 @@ Individual skills can also be installed with the commands in the table:
 | Investing.com | `npx skills add gauss314/skills --skill investing` |
 | Morningstar | `npx skills add gauss314/skills --skill morningstar` |
 | TradingView | `npx skills add gauss314/skills --skill tradingview` |
+| Google Finance | `npx skills add gauss314/skills --skill google-finance` |
 | BCRA Macro | `npx skills add gauss314/skills --skill bcra-macro` |
 | Data912 | `npx skills add gauss314/skills --skill data912` |
 | MAE | `npx skills add gauss314/skills --skill mae` |
@@ -204,6 +206,8 @@ npx skills add gauss314/skills --skill bcra-macro -g
 
 **TradingView:** GLOBAL coverage — **100K+** stocks, **50K+** cryptos, indices, forex, bonds. Scanner API with **~300** columns (quote, pre-calculated technical indicators RSI/MACD/EMAs/SMAs/pivots, aggregated BUY/SELL ratings, valuation, financials, earnings + forecasts, analyst targets, dividends, ownership, short interest, returns). Symbol Search v3 with ISIN/CUSIP/CIK (joinable with SEC EDGAR). News Headlines (**~200** per stock, Dow Jones/Reuters/MarketBeat). HTML scraping of **16+** subpages (technicals, financials-income-statement, balance-sheet, cash-flow, options-chain, forecast, ideas). Mass SQL-like screener with filters + sort + pagination. **24** CLI modes with **4** unique HTTP endpoints.
 
+**Google Finance:** Internal RPC API (`batchexecute`) discovered by reverse engineering. **NO API key, NO auth.** **19** CLI modes over **14+** RPC IDs. Quote (US + Argentine BCBA), OHLC intraday **1-min** + **5-min** (free, not available in other providers), OHLC daily last month + 6 months, massive financials (~22 KB income/balance/cashflow multi-period), earnings history, **analyst recommendations with individual detail** (Goldman, etc, with firm + target + date), technical ratings, company description with physical address + employees, peers, news with thumbnails, **global indices in 1 call** (Dow, S&P, NASDAQ, VIX, DAX, FTSE, Nikkei, Hang Seng, IBEX, CAC), sectors heatmap. Unique differentiators: free 1-min OHLC + per-analyst detail + company address. ⚠️ **Unofficial API, requires precautions** — read `references/LIMITATIONS_TROUBLESHOOTING.md`. Exhaustive documentation with 5 references + 3 JSON assets + warnings + plan B with alternative providers.
+
 #### Data — Regional (Argentina)
 
 **BCRA Macro:** **1,220** total series → **638** national series (official catalog v4.0) from the Central Bank. Daily/periodic series: exchange rate (official, wholesale, MEP, CCL, blue*), reserves, monetary policy rate, BADLAR, CER, UVA, LELIQ, monetary base, M2, deposits, loans. Data since **1996**.
@@ -230,8 +234,7 @@ npx skills add gauss314/skills --skill bcra-macro -g
 
 Tested with:
 
-- Claude Code, Antigravity, Cursor, Windsurf, Gemini CLI
-- Codex, OpenCode, CommandCode CLI, Kimi CLI, Trae
+- Claude Code, Antigravity, Cursor, Windsurf, Gemini CLI, Codex, OpenCode, CommandCode CLI, Kimi CLI, Trae
 
 ## License
 
