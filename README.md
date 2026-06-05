@@ -11,26 +11,26 @@ Skills that extract market data (quotes, historical, fundamentals, screener, etc
 
 | # | Skill | Type | Cost | API Key | Instruments |
 |---|-------|------|:-----:|:-------:|--------------|
-| 1 | [FRED Macro](./skills/fred-macro/) | API | ✅ Free | Required | macro-data |
-| 2 | [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠️ Freemium | Required | stocks, forex, commodities, fundamentals |
-| 3 | [Yahoo Finance](./skills/yahoo-finance/) | API/Scraper | ✅ Free | - | stocks, forex, options, futures, fundamentals |
-| 4 | [SEC Data](./skills/sec-data/) | API | ✅ Free | - | fundamentals |
-| 5 | [Alpaca Data](./skills/alpaca-data/) | API | ✅ Free | Required | stocks, options |
-| 6 | [Finnhub](./skills/finnhub/) | API | ⚠️ Freemium | Required | stocks, forex, fundamentals |
-| 7 | [Finviz](./skills/finviz/) | Scraper | ✅ Free | - | stocks, fundamentals, screener |
-| 8 | [Macrotrends](./skills/macrotrends/) | Scraper | ✅ Free | - | stocks, fundamentals |
-| 9 | [MarketScreener](./skills/marketscreener/) | Scraper | ✅ Free | - | stocks, fundamentals, screener |
-| 10 | [MarketWatch](./skills/marketwatch/) | Scraper | ✅ Free | - | stocks, options, futures, fundamentals |
-| 11 | [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✅ Free | - | stocks, etfs |
-| 12 | [SimplyWallSt](./skills/simplywallst/) | API/Scraper | ✅ Free | - | stocks, fundamentals |
-| 13 | [EarningsWhispers](./skills/earningswhispers/) | API | ✅ Free | - | fundamentals |
-| 14 | [Barchart](./skills/barchart/) | Scraper | ✅ Free | - | stocks, futures, fundamentals |
-| 15 | [Nasdaq Data](./skills/nasdaq-data/) | API | ✅ Free | - | stocks, options, fundamentals, etfs |
-| 16 | [CBOE Data](./skills/cboe-data/) | API | ✅ Free | - | stocks, options, commodities, futures |
-| 17 | [Investing.com](./skills/investing/) | Scraper | ✅ Free | - | stocks, forex, commodities, options, futures, etfs, screener, fundamentals |
-| 18 | [Morningstar](./skills/morningstar/) | API | ✅ Free | - | screener |
-| 19 | [TradingView](./skills/tradingview/) | API | ✅ Free | - | stocks, etfs, bonds, options, futures, forex, crypto, screener, fundamentals |
-| 20 | [Google Finance](./skills/google-finance/) | API | ✅ Free | - | stocks, etfs, options, fundamentals |
+| 1 | [FRED Macro](./skills/fred-macro/) | API | ✓ Free | Required | macro-data |
+| 2 | [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠ Freemium | Required | stocks, forex, commodities, fundamentals |
+| 3 | [Yahoo Finance](./skills/yahoo-finance/) | API/Scraper | ✓ Free | - | stocks, forex, options, futures, fundamentals |
+| 4 | [SEC Data](./skills/sec-data/) | API | ✓ Free | - | fundamentals |
+| 5 | [Alpaca Data](./skills/alpaca-data/) | API | ✓ Free | Required | stocks, options |
+| 6 | [Finnhub](./skills/finnhub/) | API | ⚠ Freemium | Required | stocks, forex, fundamentals |
+| 7 | [Finviz](./skills/finviz/) | Scraper | ✓ Free | - | stocks, fundamentals, screener |
+| 8 | [Macrotrends](./skills/macrotrends/) | Scraper | ✓ Free | - | stocks, fundamentals |
+| 9 | [MarketScreener](./skills/marketscreener/) | Scraper | ✓ Free | - | stocks, fundamentals, screener |
+| 10 | [MarketWatch](./skills/marketwatch/) | Scraper | ✓ Free | - | stocks, options, futures, fundamentals |
+| 11 | [CompaniesMarketCap](./skills/companiesmarketcap/) | Scraper | ✓ Free | - | stocks, etfs |
+| 12 | [SimplyWallSt](./skills/simplywallst/) | API/Scraper | ✓ Free | - | stocks, fundamentals |
+| 13 | [EarningsWhispers](./skills/earningswhispers/) | API | ✓ Free | - | fundamentals |
+| 14 | [Barchart](./skills/barchart/) | Scraper | ✓ Free | - | stocks, futures, fundamentals |
+| 15 | [Nasdaq Data](./skills/nasdaq-data/) | API | ✓ Free | - | stocks, options, fundamentals, etfs |
+| 16 | [CBOE Data](./skills/cboe-data/) | API | ✓ Free | - | stocks, options, commodities, futures |
+| 17 | [Investing.com](./skills/investing/) | Scraper | ✓ Free | - | stocks, forex, commodities, options, futures, etfs, screener, fundamentals |
+| 18 | [Morningstar](./skills/morningstar/) | API | ✓ Free | - | screener |
+| 19 | [TradingView](./skills/tradingview/) | API | ✓ Free | - | stocks, etfs, bonds, options, futures, forex, crypto, screener, fundamentals |
+| 20 | [Google Finance](./skills/google-finance/) | API | ✓ Free | - | stocks, etfs, options, fundamentals |
 
 ## Data — Regional (Argentina)
 
@@ -38,11 +38,12 @@ Skills specific to the Argentine market: BCRA, BCBA, MAE, CAFCI, etc.
 
 | # | Skill | Type | Cost | API Key | Instruments |
 |---|-------|------|:-----:|:-------:|--------------|
-| 1 | [BCRA Macro](./skills/bcra-macro/) | API | ✅ Free | - | macro-data |
-| 2 | [Data912](./skills/data912/) | API | ✅ Free | - | stocks, forex, bonds, options, etfs |
-| 3 | [MAE](./skills/mae/) | API | ✅ Free | - | bonds, macro-data, forex |
-| 4 | [BYMA](./skills/byma/) | API | ✅ Free | - | stocks, bonds, options, etfs |
-| 5 | [CAFCI](./skills/cafci/) | API | ✅ Free | - | etfs |
+| 1 | [BCRA Macro](./skills/bcra-macro/) | API | ✓ Free | - | macro-data |
+| 2 | [Data912](./skills/data912/) | API | ✓ Free | - | stocks, forex, bonds, options, etfs |
+| 3 | [MAE](./skills/mae/) | API | ✓ Free | - | bonds, macro-data, forex |
+| 4 | [BYMA](./skills/byma/) | API | ✓ Free | - | stocks, bonds, options, etfs |
+| 5 | [CAFCI](./skills/cafci/) | API | ✓ Free | - | etfs |
+| 6 | [INDEC](./skills/indec/) | API | ✓ Free | - | macro-data |
 
 ---
 
@@ -53,6 +54,8 @@ Skills that allow executing real trades (orders, positions, account) on broker a
 | # | Skill | Type | Country | Instruments |
 |---|-------|------|---------|--------------|
 | 1 | [Alpaca Trading](./skills/alpaca-trading/) | REST | USA | stocks, options |
+| soon | Tradier | | | |
+| soon | Interactive Brokers | | | |
 | soon | Invertironline | | | |
 | soon | Portfolio Personal | | | |
 
@@ -66,14 +69,21 @@ Calculation and financial support tools (backtesting frameworks, screeners, opti
 |---|-------|----------|
 | soon | Portfolio Optimization | Markowitz, mean-variance, Black-Litterman, risk parity, constraints (long-only, sector caps, position limits), efficient frontier, monte carlo |
 | soon | Backtesting | Walk-forward, in-sample/out-of-sample, transaction costs, slippage, sharpe/sortino/max-drawdown, equity curve, signal generation |
-| soon | Option pricing | Black-Scholes, binomial/trinomial trees, Monte Carlo, greeks (delta/gamma/vega/theta/rho), implied vol, volatility surface |
+| 1 | [Option pricing](./skills/option-pricing/) | Black-Scholes, Binomial CRR, Trinomial, Monte Carlo (antithetic), Longstaff-Schwartz, Barone-Adesi-Whaley, greeks (delta/gamma/vega/theta/rho), implied vol, P(ITM) and P(Profit). 13 CLI modes. Flat Python + numpy, 800k options/sec (BS) |
 
 ---
 
 ### Installation
 
-Install all skills globally: `npx skills add gauss314/skills -g`  
-Individual skills can also be installed with the commands in the table:
+Install all skills globally:
+
+```bash
+npx skills add gauss314/skills -g
+```
+
+Individual skills can also be installed with the commands in the tables below:
+
+#### Data — Global
 
 | Skill | Command |
 |-------|---------|
@@ -97,12 +107,29 @@ Individual skills can also be installed with the commands in the table:
 | Morningstar | `npx skills add gauss314/skills --skill morningstar` |
 | TradingView | `npx skills add gauss314/skills --skill tradingview` |
 | Google Finance | `npx skills add gauss314/skills --skill google-finance` |
+
+#### Data — Regional (Argentina)
+
+| Skill | Command |
+|-------|---------|
 | BCRA Macro | `npx skills add gauss314/skills --skill bcra-macro` |
 | Data912 | `npx skills add gauss314/skills --skill data912` |
 | MAE | `npx skills add gauss314/skills --skill mae` |
 | BYMA | `npx skills add gauss314/skills --skill byma` |
 | CAFCI | `npx skills add gauss314/skills --skill cafci` |
+| INDEC | `npx skills add gauss314/skills --skill indec` |
+
+#### Brokers
+
+| Skill | Command |
+|-------|---------|
 | Alpaca Trading | `npx skills add gauss314/skills --skill alpaca-trading` |
+
+#### Tools
+
+| Skill | Command |
+|-------|---------|
+| Option pricing | `npx skills add gauss314/skills --skill option-pricing` |
 
 ## Structure
 
@@ -220,13 +247,15 @@ npx skills add gauss314/skills --skill bcra-macro -g
 
 **CAFCI:** **1,152** funds and **4,615** classes active as of 2026-06. Categories: Money Market, Fixed Income, Equity, Mixed Income, PyMes, Total Return, Infrastructure, Closed Funds, ASG, RG900. JSON catalog (fees, IDs, metadata), daily XLSX snapshot (VCP, equity, market share, variations), individual markdown sheet (TNA returns per period), portfolio composition (top assets). **4** endpoints + local daily cache.
 
+**INDEC:** Official **Series de Tiempo** API of the Argentine State (`apis.datos.gob.ar/series`). **~4,250** series from INDEC + BCRA + Min Economy + Sec Labor + DGEYC. NO API key, NO auth, NO captcha. **The most stable and best-documented API in the repo** — official documentation, GitHub source, no-break ABI policies. Coverage: National IPC (general level, core, regulated, by chapters and regions), EMAE (original + seasonally adjusted + sectoral), IPI Manufacturing, ISAC Construction, EPH (unemployment by region), poverty line, exports, RIPTE wages, SMVM, BCRA exchange rate, BCRA reserves, REM market expectations. **Unique features:** 7 builtin transformations server-side (`percent_change_a_year_ago` = YoY inflation, `percent_change_since_beginning_of_year` = YTD inflation), 6 builtin temporal aggregations (daily→monthly→yearly with avg/sum/end_of_period/min/max), multi-series in 1 request. **19** CLI modes with 9 indicator shortcuts (`ipc`, `emae`, `salarios`, `dolar`, `reservas`, etc). Documentation: 10 references (REFERENCE, ENDPOINTS, PARAMS, REPRESENTATION_MODES, COLLAPSE_AGGREGATIONS, SERIES_CATALOG, RESPONSE_FORMAT, DATA_SOURCES, COOKBOOK with 30+ recipes, LIMITATIONS_TROUBLESHOOTING) + 5 JSON assets with curated catalog of canonical series IDs.
+
 #### Brokers
 
 **Alpaca Trading:** paper trading (free) and live trading of US stocks, crypto and options. REST API over Alpaca Broker. Market data via IEX feed. Market/limit/stop/trailing-stop orders, short selling, multi-leg options. Positions, account, watchlists, calendar. Official SDK: `alpaca-py`.
 
 #### Tools
 
-*(empty — backtesting tools, custom screeners, greeks calculation, etc will be added)*
+**Option pricing:** flat-Python, numpy-vectorized option pricing for backtesting. 5 methods: Black-Scholes (closed-form, european), Binomial CRR (tree, american + european), Trinomial Boyle (tree, american + european), Monte Carlo with antithetic variates (european) + Longstaff-Schwartz (american via simulation), Barone-Adesi-Whaley (closed-form american, BAW). Greeks (delta/gamma/vega/theta/rho) computed analytically. Implied volatility solver via bisection. CLI with 12 modes including `validate` and `bench`. Performance: Black-Scholes ~1.2 us/op (~800k options/sec), BAW ~1.4 us/op, Binomial N=500 ~3 ms/op. Validated against Hull 9th ed (Examples 15.6 and 21.1) and put-call parity.
 
 ---
 
