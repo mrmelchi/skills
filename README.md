@@ -28,6 +28,9 @@ Colección de skills compatibles con el estándar [SKILL.md](https://skills.sh) 
 | 17 | [Barchart](./skills/barchart/) | Scraper | ✅ Gratis | - | Quotes + fundamentals + insider summary. Estimates. Analysts 30K+ stocks US, ADRs globales |
 | 18 | [Nasdaq Data](./skills/nasdaq-data/) | API | ✅ Gratis | - | Cotizaciones, short interest, financials, institutional holdings, opciones, noticias, ETFs donde el stock es Top 10 Holding via API REST interna |
 | 19 | [CBOE Data](./skills/cboe-data/) | API | ✅ Gratis | - | Índices y stocks CBOE: quotes delayed, historical (HV/IV), intraday 1-min, futuros VX, market summary (equities + opciones), most-active, symbol lookup |
+| 20 | [Investing.com](./skills/investing/) | Scraper | ✅ Gratis | - | 81K+ equities, 10K+ indices, 2.4K currencies, 344 commodities, 30K+ ETFs, 4K+ crypto. Quotes, historico OHLCV, fundamentals (income/balance/cashflow/ratios), dividendos, earnings, perfil. Cobertura global con auto-detección de tipo. Requiere `curl_cffi` |
+| 21 | [MAE](./skills/mae/) | API | ✅ Gratis | - | 🌎AR Mercado Abierto Electrónico: renta fija, cauciones, REPO, FOREX mayorista, dólar diferido (DDF), índice ARS-MAE, licitaciones primarias, comunicados institucionales, flujo de fondos para curvas TIR/MD. 17 endpoints |
+| 22 | [BYMA](./skills/byma/) | API | ✅ Gratis | - | 🌎AR Bolsas y Mercados Argentinos: paneles de acciones líderes, CEDEARs, bonos soberanos + LECAPs/BONCAPs, ONs corporativas, cauciones, opciones y SENEBI. Históricos OHLCV de instrumentos e índices (MERVAL, BURCAP). 9 endpoints |
 
 ### Instalación
 
@@ -55,6 +58,9 @@ Tambien se pueden instalar solo las necesarias individualmente con los comandos 
 | 17 | Barchart | `npx skills add gauss314/skills --skill barchart` |
 | 18 | Nasdaq Data | `npx skills add gauss314/skills --skill nasdaq-data` |
 | 19 | CBOE Data | `npx skills add gauss314/skills --skill cboe-data` |
+| 20 | Investing.com | `npx skills add gauss314/skills --skill investing` |
+| 21 | MAE | `npx skills add gauss314/skills --skill mae` |
+| 22 | BYMA | `npx skills add gauss314/skills --skill byma` |
 
 ## Estructura
 
