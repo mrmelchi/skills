@@ -45,7 +45,7 @@ Skills specific to the Argentine market: BCRA, BCBA, MAE, CAFCI, etc.
 | 5 | [CAFCI](./skills/cafci/) | API | ✓ Free | - | etfs |
 | 6 | [INDEC](./skills/indec/) | API | ✓ Free | - | macro-data |
 
----
+
 
 ## Brokers
 
@@ -59,7 +59,7 @@ Skills that allow executing real trades (orders, positions, account) on broker a
 | soon | Invertironline | | | |
 | soon | Portfolio Personal | | | |
 
----
+
 
 ## Tools
 
