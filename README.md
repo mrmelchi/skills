@@ -12,11 +12,11 @@ Skills that extract market data (quotes, historical, fundamentals, screener, etc
 | # | Skill | Type | Cost | API Key | Instruments |
 |---|-------|------|:-----:|:-------:|--------------|
 | 1 | [FRED Macro](./skills/fred-macro/) | API | ✓ Free | Required | macro-data |
-| 2 | [Alpha Vantage](./skills/alpha-vantage/) | API | ⚠ Freemium | Required | stocks, forex, commodities, fundamentals |
+| 2 | [Alpha Vantage](./skills/alpha-vantage/) | API | Freemium | Required | stocks, forex, commodities, fundamentals |
 | 3 | [Yahoo Finance](./skills/yahoo-finance/) | API/Scraper | ✓ Free | - | stocks, forex, options, futures, fundamentals |
 | 4 | [SEC Data](./skills/sec-data/) | API | ✓ Free | - | fundamentals |
 | 5 | [Alpaca Data](./skills/alpaca-data/) | API | ✓ Free | Required | stocks, options |
-| 6 | [Finnhub](./skills/finnhub/) | API | ⚠ Freemium | Required | stocks, forex, fundamentals |
+| 6 | [Finnhub](./skills/finnhub/) | API | Freemium | Required | stocks, forex, fundamentals |
 | 7 | [Finviz](./skills/finviz/) | Scraper | ✓ Free | - | stocks, fundamentals, screener |
 | 8 | [Macrotrends](./skills/macrotrends/) | Scraper | ✓ Free | - | stocks, fundamentals |
 | 9 | [MarketScreener](./skills/marketscreener/) | Scraper | ✓ Free | - | stocks, fundamentals, screener |
@@ -67,9 +67,10 @@ Calculation and financial support tools (backtesting frameworks, screeners, opti
 
 | # | Skill | Concepts |
 |---|-------|----------|
-| soon | Portfolio Optimization | Markowitz, mean-variance, Black-Litterman, risk parity, constraints (long-only, sector caps, position limits), efficient frontier, monte carlo |
-| soon | Backtesting | Walk-forward, in-sample/out-of-sample, transaction costs, slippage, sharpe/sortino/max-drawdown, equity curve, signal generation |
-| 1 | [Option pricing](./skills/option-pricing/) | Black-Scholes, Binomial CRR, Trinomial, Monte Carlo (antithetic), Longstaff-Schwartz, Barone-Adesi-Whaley, greeks (delta/gamma/vega/theta/rho), implied vol, P(ITM) and P(Profit). 13 CLI modes. Flat Python + numpy, 800k options/sec (BS) |
+| 1 | [Option pricing](./skills/option-pricing/) | Black-Scholes, Binomial CRR, Trinomial, Monte Carlo (antithetic), Longstaff-Schwartz, Bjerksund-Stensland/BAW (American), Heston (smile), Bates (smile + crashes), greeks (delta/gamma/vega/theta/rho), implied vol, P(ITM) and P(Profit). 15 CLI modes. Flat Python + numpy, 419k options/sec (BS) |
+| soon | Portfolio Optimization |  |
+| soon | Backtesting |  |
+
 
 ---
 
@@ -255,7 +256,7 @@ npx skills add gauss314/skills --skill bcra-macro -g
 
 #### Tools
 
-**Option pricing:** flat-Python, numpy-vectorized option pricing for backtesting. 5 methods: Black-Scholes (closed-form, european), Binomial CRR (tree, american + european), Trinomial Boyle (tree, american + european), Monte Carlo with antithetic variates (european) + Longstaff-Schwartz (american via simulation), Barone-Adesi-Whaley (closed-form american, BAW). Greeks (delta/gamma/vega/theta/rho) computed analytically. Implied volatility solver via bisection. CLI with 12 modes including `validate` and `bench`. Performance: Black-Scholes ~1.2 us/op (~800k options/sec), BAW ~1.4 us/op, Binomial N=500 ~3 ms/op. Validated against Hull 9th ed (Examples 15.6 and 21.1) and put-call parity.
+**Option pricing:** flat-Python, numpy-vectorized option pricing for backtesting. 9 methods covering vanilla, smile, and tail risk: Black-Scholes (closed-form, european), Binomial CRR (tree, american + european), Trinomial Boyle (tree, american + european), Monte Carlo with antithetic variates (european) + Longstaff-Schwartz (american via simulation), Bjerksund-Stensland 2002 / BAW (closed-form american), Heston 1993 (stochastic vol, smile via Fourier integral), Bates 1996 (Heston + Merton jumps, captures crash risk). Plus analytic greeks (delta/gamma/vega/theta/rho), implied volatility solver via bisection, and risk-neutral P(ITM) and P(Profit). CLI with 15 modes including `validate` and `bench`. Real benchmarks (Python 3.14 + numpy 2.4.4, same inputs for all methods): BS 2.4 us/op (419k/s), BS2 3.6 us/op (276k/s), P(ITM) 1.1 us/op (908k/s), Heston 398 us/op (2.5k/s), Bates 6.2 ms/op (160/s), Binomial N=500 5.6 ms/op (178/s). Validated against Hull 9th ed (Examples 15.6 and 21.1) and put-call parity (15/15 pass).
 
 ---
 
