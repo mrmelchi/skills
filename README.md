@@ -68,8 +68,8 @@ Calculation and financial support tools (backtesting frameworks, screeners, opti
 | # | Skill | Concepts |
 |---|-------|----------|
 | 1 | [Option pricing](./skills/option-pricing/) | Black-Scholes, Binomial CRR, Trinomial, Monte Carlo (antithetic), Longstaff-Schwartz, Bjerksund-Stensland/BAW (American), Heston (smile), Bates (smile + crashes), greeks (delta/gamma/vega/theta/rho), implied vol, P(ITM) and P(Profit). 15 CLI modes. Flat Python + numpy, 419k options/sec (BS) |
-| soon | Portfolio Optimization |  |
-| soon | Backtesting |  |
+| 2 | [Backtesting](./skills/backtesting/) | Academic backtesting framework. 30+ risk/performance ratios, 10 classes of indicators, event-driven engine with 8 built-in strategies, Markowitz optimization, forward-looking simulation (Johnson SU + t-Copula), walk-forward CV, stress testing, fundamental analysis (Altman Z, Piotroski, DuPont). Flat Python + numpy, 33 checks validation suite. |
+| soon | Portfolio Optimization | |
 
 <br><br>
 
@@ -136,6 +136,7 @@ Individual skills can also be installed with the commands in the tables below:
 | Skill | Command |
 |-------|---------|
 | Option pricing | `npx skills add gauss314/skills --skill option-pricing` |
+| Backtesting | `npx skills add gauss314/skills --skill backtesting` |
 
 <br><br>
 # Structure
@@ -263,6 +264,8 @@ npx skills add gauss314/skills --skill bcra-macro -g
 #### Tools
 
 **Option pricing:** flat-Python, numpy-vectorized option pricing for backtesting. 9 methods covering vanilla, smile, and tail risk: Black-Scholes (closed-form, european), Binomial CRR (tree, american + european), Trinomial Boyle (tree, american + european), Monte Carlo with antithetic variates (european) + Longstaff-Schwartz (american via simulation), Bjerksund-Stensland 2002 / BAW (closed-form american), Heston 1993 (stochastic vol, smile via Fourier integral), Bates 1996 (Heston + Merton jumps, captures crash risk). Plus analytic greeks (delta/gamma/vega/theta/rho), implied volatility solver via bisection, and risk-neutral P(ITM) and P(Profit). CLI with 15 modes including `validate` and `bench`. Real benchmarks (Python 3.14 + numpy 2.4.4, same inputs for all methods): BS 2.4 us/op (419k/s), BS2 3.6 us/op (276k/s), P(ITM) 1.1 us/op (908k/s), Heston 398 us/op (2.5k/s), Bates 6.2 ms/op (160/s), Binomial N=500 5.6 ms/op (178/s). Validated against Hull 9th ed (Examples 15.6 and 21.1) and put-call parity (15/15 pass).
+
+**Backtesting:** academic backtesting framework for quantitative research. **30+** risk and performance ratios (flat, numpy-vectorized, no classes), **10** classes of indicators (trend-following, oscillators, contrarians, flow, combined, discrete counts, seasonality, statistical, referential, fundamental). Event-driven **BacktestEngine** with 8 built-in strategies (SMA crossover, RSI mean-reversion, MACD, Bollinger Bands contrarian, ADX trend, momentum, growth+momentum combo). **Markowitz** efficient frontier with random portfolio sampling and Monte Carlo simulation. **Forward-looking** simulation with Johnson SU marginals + t/Gaussian copula, drift, and fan-chart projection. **Walk-forward** cross-validation with expanding window and IS/OOS gap. **Stress testing** with parametric scenario shocks. **Fundamental analysis**: Altman Z-Score (bankruptcy prediction), Piotroski F-Score (9-criterion quality), DuPont decomposition (5-factor ROE). **30+** risk/performance ratios: Sharpe, Sortino, Calmar, Kelly, MaxDD, Ulcer, Recovery Factor, Rachev A/B/C, Common Sense Ratio, Payoff Ratio, Profit Factor, Win/Loss Ratio, VaR (empirical/normal/Johnson SU), cVaR, tracking error, information ratio. **31-check** 4-level validation suite (`py scripts/validate.py`) covering CLI modes, mathematical consistency, edge cases, and regression.
 
 ---
 

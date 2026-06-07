@@ -30,10 +30,10 @@ comparativas.
 
 ```
                  +-- Europea? -- Si --> Sonrisa/skew? -- Si --> Heston
-                 |                                \-- No --> BS
+                 |                                   \-- No --> BS
   Opcion que     |
-  quiero        +-- Americana? -- Sin dividendos? -- Si --> BS2
-  pricer --------                                  \-- No --> BS2 o Binomial
+  quiero         +-- Americana? -- Sin dividendos? -- Si --> BS2
+  pricear ------ |                                \-- No --> BS2 o Binomial
                  |
                  +-- Smile + tail risk? -- Si --> Bates
                  |
