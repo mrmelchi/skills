@@ -52,8 +52,9 @@ Skills specific to the Argentine market: BCRA, BCBA, MAE, CAFCI, etc.
 Skills that allow executing real trades (orders, positions, account) on broker accounts.
 
 | # | Skill | Type | Country | Instruments |
-|---|-------|------|---------|--------------|
+|--:|-------|------|---------|--------------|
 | 1 | [Alpaca Trading](./skills/alpaca-trading/) | REST | USA | stocks, options |
+| 2 | [Primary](./skills/primary/) | REST+WS | Argentina | futures |
 | soon | Tradier | | | |
 | soon | Interactive Brokers | | | |
 | soon | Invertironline | | | |
@@ -69,7 +70,7 @@ Calculation and financial support tools (backtesting frameworks, screeners, opti
 |---|-------|----------|
 | 1 | [Option pricing](./skills/option-pricing/) | Black-Scholes, Binomial CRR, Trinomial, Monte Carlo (antithetic), Longstaff-Schwartz, Bjerksund-Stensland/BAW (American), Heston (smile), Bates (smile + crashes), greeks (delta/gamma/vega/theta/rho), implied vol, P(ITM) and P(Profit). 15 CLI modes. Flat Python + numpy, 419k options/sec (BS) |
 | 2 | [Backtesting](./skills/backtesting/) | Academic backtesting framework. 30+ risk/performance ratios, 10 classes of indicators, event-driven engine with 8 built-in strategies, Markowitz optimization, forward-looking simulation (Johnson SU + t-Copula), walk-forward CV, stress testing, fundamental analysis (Altman Z, Piotroski, DuPont). Flat Python + numpy, 33 checks validation suite. |
-| soon | Portfolio Optimization | |
+| 3 | [Portfolio](./skills/portfolio/) | Portfolio construction and optimization: Markowitz (scipy.optimize + Monte Carlo frontier), Black-Litterman (CAPM inverse prior, absolute/relative views, Idzorek omega, Bayesian posterior), HRP/HERC/NCO (hierarchical clustering, risk parity, nested clustered optimization with constraints). All flat numpy + scipy, no Riskfolio-Lib/PyPortfolioOpt required. 12 CLI modes, verified against real yfinance data matching library outputs exactly.
 
 <br><br>
 
@@ -130,6 +131,7 @@ Individual skills can also be installed with the commands in the tables below:
 | Skill | Command |
 |-------|---------|
 | Alpaca Trading | `npx skills add gauss314/skills --skill alpaca-trading` |
+| Primary | `npx skills add gauss314/skills --skill primary` |
 
 ## Tools
 
@@ -137,6 +139,7 @@ Individual skills can also be installed with the commands in the tables below:
 |-------|---------|
 | Option pricing | `npx skills add gauss314/skills --skill option-pricing` |
 | Backtesting | `npx skills add gauss314/skills --skill backtesting` |
+| Portfolio | `npx skills add gauss314/skills --skill portfolio` |
 
 <br><br>
 # Structure
@@ -261,11 +264,15 @@ npx skills add gauss314/skills --skill bcra-macro -g
 
 **Alpaca Trading:** paper trading (free) and live trading of US stocks, crypto and options. REST API over Alpaca Broker. Market data via IEX feed. Market/limit/stop/trailing-stop orders, short selling, multi-leg options. Positions, account, watchlists, calendar. Official SDK: `alpaca-py`.
 
+**Primary:** Trading API for Matba ROFEX (Argentina's derivatives exchange). Futures (USD, soybean, corn, wheat), options on futures, stocks, bonds, CEDEARs. Token-based auth (24h). REST + WebSocket for real-time market data, order entry/cancel, and execution reports. Risk API (HTTP Basic Auth) for positions and account reports. No SDK — direct HTTP via `requests`.
+
 #### Tools
 
 **Option pricing:** flat-Python, numpy-vectorized option pricing for backtesting. 9 methods covering vanilla, smile, and tail risk: Black-Scholes (closed-form, european), Binomial CRR (tree, american + european), Trinomial Boyle (tree, american + european), Monte Carlo with antithetic variates (european) + Longstaff-Schwartz (american via simulation), Bjerksund-Stensland 2002 / BAW (closed-form american), Heston 1993 (stochastic vol, smile via Fourier integral), Bates 1996 (Heston + Merton jumps, captures crash risk). Plus analytic greeks (delta/gamma/vega/theta/rho), implied volatility solver via bisection, and risk-neutral P(ITM) and P(Profit). CLI with 15 modes including `validate` and `bench`. Real benchmarks (Python 3.14 + numpy 2.4.4, same inputs for all methods): BS 2.4 us/op (419k/s), BS2 3.6 us/op (276k/s), P(ITM) 1.1 us/op (908k/s), Heston 398 us/op (2.5k/s), Bates 6.2 ms/op (160/s), Binomial N=500 5.6 ms/op (178/s). Validated against Hull 9th ed (Examples 15.6 and 21.1) and put-call parity (15/15 pass).
 
 **Backtesting:** academic backtesting framework for quantitative research. **30+** risk and performance ratios (flat, numpy-vectorized, no classes), **10** classes of indicators (trend-following, oscillators, contrarians, flow, combined, discrete counts, seasonality, statistical, referential, fundamental). Event-driven **BacktestEngine** with 8 built-in strategies (SMA crossover, RSI mean-reversion, MACD, Bollinger Bands contrarian, ADX trend, momentum, growth+momentum combo). **Markowitz** efficient frontier with random portfolio sampling and Monte Carlo simulation. **Forward-looking** simulation with Johnson SU marginals + t/Gaussian copula, drift, and fan-chart projection. **Walk-forward** cross-validation with expanding window and IS/OOS gap. **Stress testing** with parametric scenario shocks. **Fundamental analysis**: Altman Z-Score (bankruptcy prediction), Piotroski F-Score (9-criterion quality), DuPont decomposition (5-factor ROE). **30+** risk/performance ratios: Sharpe, Sortino, Calmar, Kelly, MaxDD, Ulcer, Recovery Factor, Rachev A/B/C, Common Sense Ratio, Payoff Ratio, Profit Factor, Win/Loss Ratio, VaR (empirical/normal/Johnson SU), cVaR, tracking error, information ratio. **31-check** 4-level validation suite (`py scripts/validate.py`) covering CLI modes, mathematical consistency, edge cases, and regression.
+
+**Portfolio:** portfolio construction and optimization from the course material (MPT, NCO, Black-Litterman). **Markowitz** via scipy.optimize or Monte Carlo simulation with efficient frontier and CML tangent line. **Black-Litterman** full pipeline: market-implied risk aversion (delta), CAPM-inverse prior returns, absolute and relative views with confidence levels, Idzorek omega, Bayesian posterior returns and covariance, Markowitz on BL posterior. **HRP/HERC/NCO** hierarchical methods: correlation-to-distance clustering (single/complete/average/ward), recursive bisection risk parity, nested clustered optimization with intra/inter-cluster Markowitz, NCO with per-asset and per-class constraints. **Risk measures**: VaR, CVaR, MAD, MSV, max drawdown, CDaR, diversification ratio, risk contribution. **Covariance estimation**: historical, Ledoit-Wolf (sklearn-compatible), OAS, EWMA. **12 CLI modes** (`markowitz`, `montecarlo`, `frontier`, `bl-prior`, `bl`, `hrp`, `herc`, `nco`, `nco-con`, `clusters`, `risk`, `stats`). All flat numpy + scipy, zero external financial libraries required. **28-test suite** with mathematical consistency checks + real yfinance verification matching PyPortfolioOpt/Riskfolio-Lib outputs exactly.
 
 ---
 
