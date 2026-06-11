@@ -82,5 +82,34 @@ Recta tangente desde la tasa libre de riesgo (Rf) al portafolio óptimo
 sobre la frontera eficiente. El portafolio tangente maximiza el Sharpe ratio.
 
 ```
-E(Rp) = Rf + Sharpe_p * sigma_p
+E(Rp) = Rf + Sharpe_t * sigma_p
 ```
+
+### Leverage y Deleverage sobre la CML
+
+El portafolio tangente (máximo Sharpe) define la pendiente de la CML.
+Cualquier punto sobre esta recta se obtiene combinando linealmente el
+activo libre de riesgo (Rf) con el portafolio tangente — sin cambiar el
+Sharpe ratio.
+
+Sea `w` el peso asignado al portafolio tangente (y `1-w` al activo libre
+de riesgo):
+
+```
+E(Rp) = (1-w) * Rf + w * E(Rt) = Rf + w * (E(Rt) - Rf)
+sigma_p = w * sigma_t
+Sharpe_p = (E(Rp) - Rf) / sigma_p = Sharpe_t
+```
+
+Casos según `w`:
+
+| w | Qué significa | Efecto |
+|---|---------------|--------|
+| 0 < w < 1 | **Deleverage**: parte en Rf, parte en tangencia | Menor riesgo y retorno, mismo Sharpe |
+| w = 1 | Portafolio tangente puro | Riesgo y retorno del tangente |
+| w > 1 | **Leverage**: pide prestado a Rf para invertir más del 100% en tangencia | Mayor riesgo y retorno, mismo Sharpe |
+
+Esto es conceptualmente distinto a moverse sobre la frontera eficiente
+(solo activos riesgosos, sin Rf). La CML domina a la frontera eficiente
+porque para cualquier nivel de riesgo ofrece mayor retorno (o menor riesgo
+para el mismo retorno).

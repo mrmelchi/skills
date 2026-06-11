@@ -60,7 +60,7 @@ skills/portfolio/
 
 | Script | Rol | Funciones clave |
 |--------|-----|----------------|
-| `portfolio.py` | Core de optimización Markowitz | `max_sharpe_optim`, `min_variance_optim`, `random_portfolios`, `efficient_frontier`, `asset_stats` |
+| `portfolio.py` | Core de optimización Markowitz | `max_sharpe_optim`, `min_variance_optim`, `random_portfolios`, `efficient_frontier`, `cml_portfolio`, `asset_stats` |
 | `black_litterman.py` | Black-Litterman completo | `market_implied_risk_aversion`, `market_implied_prior_returns`, `bl_posterior_returns`, `omega_idzorek` |
 | `hierarchical.py` | HRP / HERC / NCO | `hrp_portfolio`, `herc_portfolio`, `nco_portfolio`, `nco_with_constraints`, `hrp_constraints` |
 | `risk_measures.py` | Medidas de riesgo | `var_historic`, `cvar`, `max_drawdown`, `cdar`, `diversification_ratio`, `risk_contribution` |
@@ -97,6 +97,23 @@ py scripts/cli.py montecarlo --assets assets/sample_returns.csv --save frontier.
 
 ```bash
 py scripts/cli.py frontier --assets assets/sample_returns.csv --n 50
+```
+
+### CML — Leverage y Deleverage
+
+El portafolio tangente (máximo Sharpe) se combina con el activo libre de riesgo
+para obtener cualquier punto sobre la Capital Market Line (CML), manteniendo
+el mismo Sharpe ratio.
+
+```bash
+# Portafolio tangente puro (w=1)
+py scripts/cli.py cml --assets assets/sample_returns.csv --weight 1.0
+
+# Deleverage: 60% en tangencia, 40% en Rf (menos riesgo, mismo Sharpe)
+py scripts/cli.py cml --assets assets/sample_returns.csv --weight 0.6
+
+# Leverage: pide prestado 50% a Rf, invierte 150% en tangencia (más riesgo, mismo Sharpe)
+py scripts/cli.py cml --assets assets/sample_returns.csv --weight 1.5
 ```
 
 ### Black-Litterman
@@ -147,6 +164,15 @@ import numpy as np
 rets = pd.read_csv('assets/sample_returns.csv', index_col=0)
 result = max_sharpe_optim(rets, rf=0.045)
 print(result['weights'], result['sharpe'])  # pesos óptimos, Sharpe
+
+# --- CML: leverage/deleverage ---
+# 60% en tangencia, 40% en Rf (deleverage)
+cml = cml_portfolio(rets, rf=0.045, weight_tangency=0.6)
+print(cml['ret'], cml['vol'], cml['sharpe'])  # mismo Sharpe que el tangente
+
+# Leverage: 150% en tangencia (pide prestado 50% a Rf)
+cml2 = cml_portfolio(rets, rf=0.045, weight_tangency=1.5)
+print(cml2['ret'], cml2['vol'], cml2['sharpe'])  # mismo Sharpe
 
 # --- Monte Carlo ---
 port_df = random_portfolios(rets, n_portfolios=10000, rf=0.045)

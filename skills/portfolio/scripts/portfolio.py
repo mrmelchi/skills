@@ -263,3 +263,46 @@ def tangent_line(returns, rf=0.0):
         'optimal_ret': best['ret'],
         'optimal_vol': best['vol']
     }
+
+
+def cml_portfolio(returns, rf=0.0, weight_tangency=1.0, bounds=None):
+    """Combine the tangency portfolio with the risk-free asset along the CML.
+
+    The Capital Market Line (CML) shows all optimal combinations of the
+    risk-free asset and the tangency (max Sharpe) portfolio.
+
+    Parameters
+    ----------
+    returns : (T, N) array-like
+        Historical returns.
+    rf : float
+        Risk-free rate (annualized).
+    weight_tangency : float
+        Weight allocated to the tangency portfolio:
+        - 0 < w < 1 : deleverage (mix with rf) — lower risk/return, same Sharpe
+        - w = 1     : pure tangency portfolio
+        - w > 1     : leverage (borrow at rf) — higher risk/return, same Sharpe
+    bounds : list of tuple or None
+        Per-asset weight bounds for the tangency portfolio optimization.
+
+    Returns
+    -------
+    dict with 'weights', 'ret', 'vol', 'sharpe', 'weight_tangency', 'weight_rf'
+    """
+    opt = max_sharpe_optim(returns, rf=rf, bounds=bounds)
+    w_t = np.asarray(opt['weights']) * weight_tangency
+    w_rf = 1.0 - weight_tangency
+    ret = w_rf * rf + weight_tangency * opt['ret']
+    vol = abs(weight_tangency) * opt['vol']
+    sharpe = (ret - rf) / vol if vol > 0 else 0.0
+    return {
+        'weights': w_t,
+        'weight_rf': w_rf,
+        'ret': ret,
+        'vol': vol,
+        'sharpe': sharpe,
+        'tangency_ret': opt['ret'],
+        'tangency_vol': opt['vol'],
+        'tangency_sharpe': opt['sharpe'],
+        'weight_tangency': weight_tangency
+    }

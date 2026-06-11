@@ -111,6 +111,56 @@ def test_efficient_frontier(sample_returns):
 
 
 # ---------------------------------------------------------------------------
+# CML: leverage / deleverage
+# ---------------------------------------------------------------------------
+
+def test_cml_portfolio_pure_tangency(sample_returns):
+    """w=1 should match max_sharpe_optim exactly."""
+    cml = ptf.cml_portfolio(sample_returns, rf=0.045, weight_tangency=1.0)
+    opt = ptf.max_sharpe_optim(sample_returns, rf=0.045)
+    assert abs(cml['ret'] - opt['ret']) < 1e-10
+    assert abs(cml['vol'] - opt['vol']) < 1e-10
+    assert abs(cml['sharpe'] - opt['sharpe']) < 1e-10
+    assert abs(cml['weight_rf']) < 1e-10
+
+
+def test_cml_portfolio_deleverage(sample_returns):
+    """0<w<1 -> lower risk, lower return, same Sharpe."""
+    opt = ptf.max_sharpe_optim(sample_returns, rf=0.045)
+    cml = ptf.cml_portfolio(sample_returns, rf=0.045, weight_tangency=0.6)
+    assert cml['vol'] < opt['vol']
+    assert cml['ret'] < opt['ret']
+    assert abs(cml['sharpe'] - opt['sharpe']) < 1e-10
+    assert abs(cml['weight_rf'] - 0.4) < 1e-10
+
+
+def test_cml_portfolio_leverage(sample_returns):
+    """w>1 -> higher risk, higher return, same Sharpe."""
+    opt = ptf.max_sharpe_optim(sample_returns, rf=0.045)
+    cml = ptf.cml_portfolio(sample_returns, rf=0.045, weight_tangency=1.5)
+    assert cml['vol'] > opt['vol']
+    assert cml['ret'] > opt['ret']
+    assert abs(cml['sharpe'] - opt['sharpe']) < 1e-10
+    assert abs(cml['weight_rf'] - (-0.5)) < 1e-10  # negative = borrow at Rf
+
+
+def test_cml_portfolio_all_rf(sample_returns):
+    """w=0 -> all in Rf -> ret=Rf, vol=0."""
+    cml = ptf.cml_portfolio(sample_returns, rf=0.045, weight_tangency=0.0)
+    assert abs(cml['ret'] - 0.045) < 1e-10
+    assert abs(cml['vol']) < 1e-10
+    assert abs(cml['weight_rf'] - 1.0) < 1e-10
+
+
+def test_cml_portfolio_sharpe_preserved(sample_returns):
+    """Sharpe ratio is identical for any w != 0 (same as tangency)."""
+    opt = ptf.max_sharpe_optim(sample_returns, rf=0.045)
+    for w in [0.25, 0.5, 0.8, 1.0, 1.2, 2.0, 3.0]:
+        cml = ptf.cml_portfolio(sample_returns, rf=0.045, weight_tangency=w)
+        assert abs(cml['sharpe'] - opt['sharpe']) < 1e-10, f'Failed at w={w}'
+
+
+# ---------------------------------------------------------------------------
 # Risk measures
 # ---------------------------------------------------------------------------
 

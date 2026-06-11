@@ -5,6 +5,7 @@ Modes:
   markowitz     Max Sharpe via scipy.optimize
   montecarlo    Monte Carlo portfolio simulation
   frontier      Efficient frontier
+  cml           CML: leverage/deleverage (risk-free + tangency)
   bl-prior      Black-Litterman prior (market-implied returns)
   bl            Full Black-Litterman + Markowitz
   hrp           Hierarchical Risk Parity
@@ -268,6 +269,23 @@ def cmd_risk(args):
         print(f'Unknown measure. Options: {list(measures)}')
 
 
+def cmd_cml(args):
+    rets = _load_returns(args.assets)
+    rf = float(args.rf)
+    w = float(args.weight)
+    result = ptf.cml_portfolio(rets, rf=rf, weight_tangency=w)
+    print(f'CML portfolio (w_tangency={w}):')
+    print(f'  ret={result["ret"]:.4f}, vol={result["vol"]:.4f}, sharpe={result["sharpe"]:.4f}')
+    print(f'  weight_rf={result["weight_rf"]:.4f}, weight_tangency={result["weight_tangency"]:.4f}')
+    print(f'  Tangency: ret={result["tangency_ret"]:.4f}, vol={result["tangency_vol"]:.4f}, '
+          f'sharpe={result["tangency_sharpe"]:.4f}')
+    if isinstance(rets, pd.DataFrame):
+        for a, w_val in zip(rets.columns, result['weights']):
+            print(f'  {a}: {w_val:.4f}')
+    else:
+        print(f'  weights: {np.round(result["weights"], 4)}')
+
+
 def cmd_stats(args):
     rets = _load_returns(args.assets)
     rf = float(args.rf)
@@ -352,6 +370,12 @@ def main():
     p.add_argument('--measure', default='all')
     p.add_argument('--alpha', default='0.05')
     p.set_defaults(func=cmd_risk)
+
+    p = sub.add_parser('cml', help='CML portfolio: combine risk-free + tangency (leverage/deleverage)')
+    p.add_argument('--assets', required=True)
+    p.add_argument('--rf', default='0.045')
+    p.add_argument('--weight', default='1.0', help='Weight in tangency portfolio (0-1 deleverage, >1 leverage)')
+    p.set_defaults(func=cmd_cml)
 
     p = sub.add_parser('stats', help='Asset statistics')
     p.add_argument('--assets', required=True)
