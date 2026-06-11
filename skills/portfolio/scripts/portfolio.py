@@ -193,10 +193,9 @@ def efficient_frontier(returns, n_points=50, rf=0.0):
     cons_base = [{'type': 'eq', 'fun': lambda w: np.sum(w) - 1}]
 
     min_var = min_variance_optim(returns, bounds=bounds)
-    max_ret = max_sharpe_optim(returns, rf=rf, bounds=bounds)
 
     ret_min = min_var['ret']
-    ret_max = max_ret['ret']
+    ret_max = mu.max()
     targets = np.linspace(ret_min, ret_max, n_points)
 
     frontier = []
