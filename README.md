@@ -31,6 +31,7 @@ Skills that extract market data (quotes, historical, fundamentals, screener, etc
 | 18 | [Morningstar](./skills/morningstar/) | API | ✓ Free | - | screener |
 | 19 | [TradingView](./skills/tradingview/) | API | ✓ Free | - | stocks, etfs, bonds, options, futures, forex, crypto, screener, fundamentals |
 | 20 | [Google Finance](./skills/google-finance/) | API | ✓ Free | - | stocks, etfs, options, fundamentals |
+| 21 | [History of Market](./skills/historyofmarket/) | API | ✓ Free | - | indices history, sectors, macro |
 
 ## Data — Regional (Argentina)
 
@@ -114,6 +115,7 @@ Individual skills can also be installed with the commands in the tables below:
 | Morningstar | `npx skills add gauss314/skills --skill morningstar` |
 | TradingView | `npx skills add gauss314/skills --skill tradingview` |
 | Google Finance | `npx skills add gauss314/skills --skill google-finance` |
+| History of Market | `npx skills add gauss314/skills --skill historyofmarket` |
 
 ## Data — Regional (Argentina)
 
@@ -245,6 +247,8 @@ npx skills add gauss314/skills --skill bcra-macro -g
 **TradingView:** GLOBAL coverage — **100K+** stocks, **50K+** cryptos, indices, forex, bonds. Scanner API with **~300** columns (quote, pre-calculated technical indicators RSI/MACD/EMAs/SMAs/pivots, aggregated BUY/SELL ratings, valuation, financials, earnings + forecasts, analyst targets, dividends, ownership, short interest, returns). Symbol Search v3 with ISIN/CUSIP/CIK (joinable with SEC EDGAR). News Headlines (**~200** per stock, Dow Jones/Reuters/MarketBeat). HTML scraping of **16+** subpages (technicals, financials-income-statement, balance-sheet, cash-flow, options-chain, forecast, ideas). Mass SQL-like screener with filters + sort + pagination. **24** CLI modes with **4** unique HTTP endpoints.
 
 **Google Finance:** Internal RPC API (`batchexecute`) discovered by reverse engineering. **NO API key, NO auth.** **19** CLI modes over **14+** RPC IDs. Quote (US + Argentine BCBA), OHLC intraday **1-min** + **5-min** (free, not available in other providers), OHLC daily last month + 6 months, massive financials (~22 KB income/balance/cashflow multi-period), earnings history, **analyst recommendations with individual detail** (Goldman, etc, with firm + target + date), technical ratings, company description with physical address + employees, peers, news with thumbnails, **global indices in 1 call** (Dow, S&P, NASDAQ, VIX, DAX, FTSE, Nikkei, Hang Seng, IBEX, CAC), sectors heatmap. Unique differentiators: free 1-min OHLC + per-analyst detail + company address. ⚠️ **Unofficial API, requires precautions** — read `references/LIMITATIONS_TROUBLESHOOTING.md`. Exhaustive documentation with 5 references + 3 JSON assets + warnings + plan B with alternative providers.
+
+**History of Market:** **88** datasets pre-generados de **historyofmarket.com** (CC BY 4.0, sin API key). S&P 500 desde **1871** — Shiller CAPE, EPS, drawdowns con causa, forward PE, driver decomposition, constituents, changes, sectors. Nasdaq Composite (1971→) y Nasdaq 100 (1985→) — price, volatilidad, VXN, drawdowns, rolling 5y, changes. Dow Jones (1914→). SOX (1994→) con 30 constituents y SMH holdings. Sector ETFs XLK/XLF con GICS reclassification 2018/2023 y holdings. **Mag 7** — concentration, correlation, AI capex, AI valuation vs dotcom. **Macro** — NBER recessions, yield curve, AIAE equity allocation. Scripts para reconstituir constituyentes historicos del S&P 500 y NDX. Cacheado (`max-age=300`), soporta ETag.
 
 #### Data — Regional (Argentina)
 

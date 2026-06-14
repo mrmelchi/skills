@@ -154,9 +154,35 @@ data = r.json()
 
 | Script | Descripción |
 |--------|-------------|
+| **[batch_fetch.py](./scripts/batch_fetch.py)** | Batch multi-ticker con token bucket + ThreadPoolExecutor. Quote batching (todos en 1 request). Charts en paralelo respetando rate limit. |
 | **[fetch_all.py](./scripts/fetch_all.py)** | Script integral: fetch de histórico + quote + fundamentals + opciones + search + recomendaciones. Genérico para cualquier ticker con argumentos CLI. |
 | **[fetch_quote.py](./scripts/fetch_quote.py)** | Fetch rápido de quote + fundamentals por ticker. |
 | **[download_historical.py](./scripts/download_historical.py)** | Descarga históricos OHLCV a CSV. |
+
+### batch_fetch.py — Batch multi-ticker con rate limiting
+
+```
+# Test seguro (3 tickers, solo chart, 2 req/s)
+py scripts/batch_fetch.py --tickers AAPL,MSFT,NVDA --chart --rate 2.0
+
+# Batch completo (quote en 1 request + charts en paralelo)
+py scripts/batch_fetch.py --tickers AAPL,MSFT,NVDA,GOOGL,META,AMZN,TSLA --all --rate 2.0 --workers 4
+
+# Solo quotes (siempre 1 request, imposible rate-limit)
+py scripts/batch_fetch.py --tickers AAPL,MSFT,NVDA,GOOGL --quote
+
+# Personalizar rate + workers
+py scripts/batch_fetch.py --tickers AAPL,MSFT,NVDA --all --rate 1.5 --workers 3 --range 5y
+```
+
+**Flags clave:**
+- `--rate` : tokens/segundo del token bucket (default: 2.0 — máximo seguro)
+- `--burst` : tokens acumulables para ráfagas (default: 5)
+- `--workers` : hilos en paralelo (default: 4)
+
+**Arquitectura:**
+1. **Fase 1 — Quote batch**: todos los tickers en 1 sola request (`v7/finance/quote?symbols=AAPL,MSFT,...`)
+2. **Fase 2 — Token bucket**: `ThreadPoolExecutor` con `TokenBucket` thread-safe compartido entre workers. Cada worker adquiere un token antes de cada request. A 2 req/s con burst=5, se pueden lanzar hasta 5 requests instantáneas sin bloquear; luego el bucket estabiliza el throughput.
 
 ### fetch_all.py — El script principal
 
@@ -221,6 +247,8 @@ Ver lista completa en [API_REFERENCE.md sección 14](./references/API_REFERENCE.
 
 **Siempre usar `time.sleep(0.5)` entre requests e implementar exponential backoff.**
 
+Para fetch multi-ticker, usar [`batch_fetch.py`](./scripts/batch_fetch.py) que implementa token bucket a 2 req/s con burst de 5. A diferencia de yfinance (que no tiene rate limiter y lanza N threads simultáneos), batch_fetch garantiza que el throughput agregado no supere el límite seguro.
+
 ---
 
 ## Errores Comunes
@@ -243,7 +271,8 @@ skills/yahoo-finance/
 ├── references/
 │   └── API_REFERENCE.md              # Documentación completa de todos los endpoints
 └── scripts/
-    ├── fetch_all.py                  # Script integral (recomendado)
+    ├── batch_fetch.py                # Batch multi-ticker con rate limiting (recomendado)
+    ├── fetch_all.py                  # Script integral
     ├── fetch_quote.py                # Quote + fundamentals rápido
     └── download_historical.py        # Históricos a CSV
 ```
